@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Github, Menu, X } from 'lucide-react'
+import { ReactTyped } from 'react-typed'
 
 function SnakeGame() {
   const [snake, setSnake] = useState([])
@@ -61,8 +62,8 @@ function Nav() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-4 bg-[#0a0a0b]/80 backdrop-blur-xl">
-      <div className="max-w-[680px] mx-auto flex justify-between items-center">
-        <a href="/" className="font-mono text-base font-semibold text-[#e4e4e7] no-underline tracking-tight">adev</a>
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <h1 href="/" className="font-mono text-base font-semibold text-[#e4e4e7] no-underline tracking-tight">adev</h1>
         
         <div className="hidden md:flex gap-6">
           <a href="#about" className="text-sm text-[#e4e4e7]/60 no-underline hover:opacity-100 transition-opacity">about</a>
@@ -92,11 +93,8 @@ function Hero() {
   const glowY = useTransform(scrollY, [0, 500], [0, -200])
   const gridY = useTransform(scrollY, [0, 500], [0, -60])
 
-  const name = 'adev'
-  const letters = name.split('')
-
   return (
-    <section className="min-h-[80vh] px-3 py-[160px] flex items-center relative" id="hero">
+    <div className="min-h-[80vh] px-3 py-[160px] flex items-center relative" id="hero">
       <motion.div 
         style={{ y: glowY }}
         className="absolute top-[5%] left-[25%] w-[600px] h-[500px] pointer-events-none"
@@ -111,28 +109,10 @@ function Hero() {
         <div className="dot-grid absolute inset-0" />
       </motion.div>
 
-      <div className="max-w-[680px] mx-auto w-full relative">
-        <h1 className="text-[72px] font-bold leading-[1.05] tracking-[-0.04em] mb-3 overflow-hidden">
-          <span className="text-accent font-mono">&gt; </span>
-          {letters.map((char, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15 + i * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-block"
-            >
-              {char}
-            </motion.span>
-          ))}
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 1, 0] }}
-            transition={{ duration: 1, repeat: Infinity, ease: 'steps(1)' }}
-            className="text-accent"
-          >
-            _
-          </motion.span>
+      <div className="px-6 w-full relative">
+        <h1 className="text-4xl md:text-5xl lg:text-[72px] font-bold leading-tight tracking-tight mb-3">
+          I am{" "}
+          <ReactTyped strings={["adeveloper79", "Android developer", "a maker", "a photographer"]} typeSpeed={100} backSpeed={50} loop className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-accent to-pink-500" />
         </h1>
 
         <motion.p 
@@ -156,13 +136,13 @@ function Hero() {
           View GitHub <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
         </motion.a>
       </div>
-    </section>
+    </div>
   )
 }
 
 function Divider() {
   return (
-    <div className="max-w-[680px] mx-auto px-3 flex items-center gap-2">
+    <div className="px-3 flex items-center gap-2">
       <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
       <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
@@ -174,8 +154,8 @@ function Divider() {
 
 function About() {
   return (
-    <section className="py-12 px-3" id="about">
-      <div className="max-w-[680px] mx-auto">
+    <div className="py-12 px-3 mx-4" id="about">
+      <div className="">
         <motion.h2 
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -196,14 +176,14 @@ function About() {
           I love tinkering with printers, creating IoT solutions, and exploring new technologies.
         </motion.p>
       </div>
-    </section>
+    </div>
   )
 }
 
 function Footer() {
   return (
     <footer className="py-16 px-3">
-      <div className="max-w-[680px] mx-auto text-center">
+      <div className="text-center">
         <div className="flex items-center gap-2 mb-4">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
@@ -228,18 +208,18 @@ function Footer() {
 
 function App() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col items-stretch">
       <SnakeGame />
       <div className="grain" />
       <div className="dot-grid" />
       
       <Nav />
       
-      <main>
+      <div className='w-full'>
         <Hero />
         <Divider />
         <About />
-      </main>
+      </div>
 
       <Footer />
     </div>
