@@ -141,8 +141,8 @@ function Hero() {
           transition={{ delay: 0.6, duration: 0.6 }}
           className="text-lg text-[#e4e4e7]/65 max-w-[460px] mb-6 leading-relaxed font-light"
         >
-          A passionate developer exploring hardware, software, and everything in between.<br />
-          Currently building things with ESP32, 3D printing, and React.
+          A random guy with multiple interests/hobbies exploring hardware, software, photography and everything in between.<br />
+          Currently building things with ESP32, Pis, Microcontrollers, 3D printing, and React.
         </motion.p>
 
         <motion.a
@@ -191,8 +191,8 @@ function About() {
           viewport={{ once: true }}
           className="text-lg text-[#e4e4e7]/65 leading-relaxed font-light"
         >
-          I'm a developer from Bhubaneswar, India with a keen interest in hardware and embedded systems. 
-          I work with ESP32, 3D printing, and build web applications with React and modern JavaScript.
+          I have keen interest in hardware, building DIY things, embedded systems Photography. 
+          I work with ESP32, Pis, Microcontrollers, 3D printing, and build web applications with React.
           I love tinkering with printers, creating IoT solutions, and exploring new technologies.
         </motion.p>
       </div>
